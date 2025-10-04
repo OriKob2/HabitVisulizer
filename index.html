@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitVisualizer - Track Your Daily Habits</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 HabitVisualizer</h1>
+            <p class="tagline">Track your daily habits and visualize your progress</p>
+        </header>
+
+        <main class="dashboard">
+            <!-- Habit Input Section -->
+            <section class="card habit-input-section">
+                <h2>📝 Add New Habit</h2>
+                <form id="habitForm">
+                    <div class="form-group">
+                        <input type="text" id="habitName" placeholder="Enter habit name..." required>
+                    </div>
+                    <div class="form-group">
+                        <select id="habitCategory">
+                            <option value="">Select category</option>
+                            <option value="health">Health & Fitness</option>
+                            <option value="productivity">Productivity</option>
+                            <option value="learning">Learning</option>
+                            <option value="mindfulness">Mindfulness</option>
+                            <option value="social">Social</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Habit</button>
+                </form>
+                <div id="habitList" class="habit-list">
+                    <h3>Current Habits</h3>
+                    <div id="habits"></div>
+                </div>
+            </section>
+
+            <!-- Progress Charts Section -->
+            <section class="card progress-charts-section">
+                <h2>📊 Progress Charts</h2>
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Weekly Overview</h3>
+                        <p class="chart-subtitle">Your habit completion rate</p>
+                    </div>
+                    <div class="progress-chart">
+                        <div class="bar-chart">
+                            <div class="bar" data-day="Mon" style="height: 60%"><span>60%</span></div>
+                            <div class="bar" data-day="Tue" style="height: 80%"><span>80%</span></div>
+                            <div class="bar" data-day="Wed" style="height: 70%"><span>70%</span></div>
+                            <div class="bar" data-day="Thu" style="height: 90%"><span>90%</span></div>
+                            <div class="bar" data-day="Fri" style="height: 85%"><span>85%</span></div>
+                            <div class="bar" data-day="Sat" style="height: 75%"><span>75%</span></div>
+                            <div class="bar" data-day="Sun" style="height: 65%"><span>65%</span></div>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <span class="legend-item">
+                            <span class="legend-dot completed"></span> Completed
+                        </span>
+                        <span class="legend-item">
+                            <span class="legend-dot pending"></span> Pending
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Streak Counters Section -->
+            <section class="card streak-section">
+                <h2>🔥 Streak Counters</h2>
+                <div class="streak-grid">
+                    <div class="streak-card">
+                        <div class="streak-icon">🏃</div>
+                        <h3>Morning Run</h3>
+                        <div class="streak-counter">
+                            <span class="streak-number">15</span>
+                            <span class="streak-label">Day Streak</span>
+                        </div>
+                        <div class="streak-bar">
+                            <div class="streak-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">📚</div>
+                        <h3>Reading</h3>
+                        <div class="streak-counter">
+                            <span class="streak-number">23</span>
+                            <span class="streak-label">Day Streak</span>
+                        </div>
+                        <div class="streak-bar">
+                            <div class="streak-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">🧘</div>
+                        <h3>Meditation</h3>
+                        <div class="streak-counter">
+                            <span class="streak-number">7</span>
+                            <span class="streak-label">Day Streak</span>
+                        </div>
+                        <div class="streak-bar">
+                            <div class="streak-progress" style="width: 35%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Feature Panel -->
+            <section class="card social-section">
+                <h2>👥 Social Features</h2>
+                <div class="social-content">
+                    <div class="social-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">127</span>
+                            <span class="stat-label">Friends</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">845</span>
+                            <span class="stat-label">Points</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">#12</span>
+                            <span class="stat-label">Rank</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard">
+                        <h3>🏆 Top Friends This Week</h3>
+                        <div class="leaderboard-list">
+                            <div class="leaderboard-item">
+                                <span class="rank">1</span>
+                                <span class="user">Sarah J.</span>
+                                <span class="score">950 pts</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="rank">2</span>
+                                <span class="user">Mike R.</span>
+                                <span class="score">920 pts</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="rank">3</span>
+                                <span class="user">You</span>
+                                <span class="score">845 pts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-actions">
+                        <button class="btn btn-social">Share Progress</button>
+                        <button class="btn btn-social">Challenge Friend</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 HabitVisualizer. Start building better habits today!</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
