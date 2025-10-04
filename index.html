@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitVisualizer - Track Your Daily Habits</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎯 HabitVisualizer</h1>
+            <p class="tagline">Track habits. Build streaks. Achieve goals.</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <button class="nav-btn active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="nav-btn" onclick="showTab('habits')">My Habits</button>
+            <button class="nav-btn" onclick="showTab('stats')">Statistics</button>
+            <button class="nav-btn" onclick="showTab('achievements')">Achievements</button>
+            <button class="nav-btn" onclick="showTab('friends')">Friends</button>
+            <button class="nav-btn" onclick="showTab('goals')">Goals</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Dashboard Tab -->
+        <section id="dashboard" class="tab-content active">
+            <h2>Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Today's Progress</h3>
+                    <div id="todayProgress" class="progress-summary">
+                        <p>No habits tracked yet</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Active Streaks</h3>
+                    <div id="activeStreaks" class="streaks-summary">
+                        <p>No active streaks</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Weekly Summary</h3>
+                    <div id="weeklySummary" class="weekly-summary">
+                        <p>Complete habits to see your weekly progress</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card chart-container">
+                <h3>Progress Overview</h3>
+                <div id="progressChart" class="custom-chart"></div>
+            </div>
+        </section>
+
+        <!-- Habits Tab -->
+        <section id="habits" class="tab-content">
+            <h2>My Habits</h2>
+            <div class="card">
+                <h3>Add New Habit</h3>
+                <form id="habitForm">
+                    <input type="text" id="habitName" placeholder="Habit name (e.g., Read for 30 minutes)" required>
+                    <input type="text" id="habitCategory" placeholder="Category (e.g., Health, Learning)" required>
+                    <select id="habitFrequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
+                    <button type="submit">Add Habit</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Active Habits</h3>
+                <div id="habitsList"></div>
+            </div>
+        </section>
+
+        <!-- Statistics Tab -->
+        <section id="stats" class="tab-content">
+            <h2>Statistics & Insights</h2>
+            <div class="card">
+                <h3>Overall Performance</h3>
+                <div id="overallStats" class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalHabits">0</div>
+                        <div class="stat-label">Total Habits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="completedToday">0</div>
+                        <div class="stat-label">Completed Today</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="longestStreak">0</div>
+                        <div class="stat-label">Longest Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalCompletions">0</div>
+                        <div class="stat-label">Total Completions</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card chart-container">
+                <h3>Habit Distribution</h3>
+                <div id="categoryChart" class="custom-chart"></div>
+            </div>
+            <div class="card chart-container">
+                <h3>Weekly Completion Rate</h3>
+                <div id="weeklyChart" class="custom-chart"></div>
+            </div>
+        </section>
+
+        <!-- Achievements Tab -->
+        <section id="achievements" class="tab-content">
+            <h2>🏆 Achievements & Milestones</h2>
+            <div id="achievementsList" class="achievements-grid"></div>
+        </section>
+
+        <!-- Friends Tab -->
+        <section id="friends" class="tab-content">
+            <h2>Friends & Accountability</h2>
+            <div class="card">
+                <h3>Add Friend</h3>
+                <form id="friendForm">
+                    <input type="text" id="friendName" placeholder="Friend's name" required>
+                    <input type="email" id="friendEmail" placeholder="Friend's email" required>
+                    <button type="submit">Add Friend</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Your Friends</h3>
+                <div id="friendsList"></div>
+            </div>
+            <div class="card">
+                <h3>Encouragement Board</h3>
+                <div id="encouragementBoard">
+                    <p>Add friends to share encouragement and stay accountable!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Tab -->
+        <section id="goals" class="tab-content">
+            <h2>Personalized Goals</h2>
+            <div class="card">
+                <h3>Set New Goal</h3>
+                <form id="goalForm">
+                    <input type="text" id="goalName" placeholder="Goal description" required>
+                    <input type="number" id="goalTarget" placeholder="Target (days/completions)" required min="1">
+                    <select id="goalHabit">
+                        <option value="">Select a habit</option>
+                    </select>
+                    <button type="submit">Set Goal</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Active Goals</h3>
+                <div id="goalsList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HabitVisualizer. Stay consistent, achieve greatness!</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
